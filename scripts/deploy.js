@@ -1,15 +1,16 @@
-const hre = require("hardhat");
+const { ethers } = require("hardhat");
 
 async function main() {
-  const Upload = await hre.ethers.getContractFactory("Upload");
-  const upload = await Upload.deploy();
+    const CertificateStorage = await ethers.getContractFactory("CertificateStorage");
+    const contract = await CertificateStorage.deploy();
 
-  await upload.deployed();
+    // Wait for the deployment to be mined
+    await contract.deployed();
 
-  console.log("Library deployed to:", upload.address);
+    console.log("CertificateStorage deployed to:", contract.address);
 }
 
 main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+    console.error(error);
+    process.exitCode = 1;
 });
