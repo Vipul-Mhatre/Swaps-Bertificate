@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Blockchain from "./Blockchain";
-import Block from "./Block";  // <-- Import Block class here
+import Block from "./Block";  
 import CreateCertificate from "./CreateCertificate";
 import VerifyCertificate from "./VerifyCertificate";
 
@@ -9,7 +9,6 @@ const App = () => {
     const [certificates, setCertificates] = useState([]);
 
     const handleAddCertificate = (data) => {
-        // Create a new instance of Block to ensure calculateHash is available
         const newBlock = new Block(
             blockchain.chain.length,
             new Date().toISOString(),
@@ -22,7 +21,7 @@ const App = () => {
 
     return (
         <div>
-            <h1>Blockchain Certificate System</h1>
+            <h1>Swaps Bertificate</h1>
             <CreateCertificate onAddCertificate={handleAddCertificate} />
             <VerifyCertificate blockchain={blockchain} />
             <div>

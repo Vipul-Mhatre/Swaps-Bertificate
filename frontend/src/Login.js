@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-function Login({ onLogin }) { // Accept onLogin as a prop
+function Login({ onLogin }) { 
     const [role, setRole] = useState("creator");
     const [password, setPassword] = useState("");
 
     const handleLogin = () => {
         const validPassword = role === "creator" ? "creator123" : "verifier123";
         if (password === validPassword) {
-            onLogin(role); // Call onLogin with the selected role
+            onLogin(role); 
         } else {
             alert("Invalid password. Please try again.");
         }
